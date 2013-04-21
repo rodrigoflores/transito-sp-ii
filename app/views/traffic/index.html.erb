@@ -1,31 +1,15 @@
-<div>
-  <section>
-    <h2>São Paulo</h2>
-    <p><%= @overall_traffic %></p>
-  </section>
+<div class='container'>
+  <h1>Trânsito SP</h1>
+
+  <% @per_zone_traffic.each do |zone, value| %>
+    <section>
+      <h2 class='airport-panel'><%= zone_name_for(zone) %></h2>
+      <p class='airport-panel'><%= value %> km</p>
+    </section>
+  <% end %>
 
   <section>
-    <h2>Zona Norte</h2>
-    <p><%= @per_zone_traffic[:north] %></p>
-  </section>
-
-  <section>
-    <h2>Zona Oeste</h2>
-    <p><%= @per_zone_traffic[:west] %></p>
-  </section>
-
-  <section>
-    <h2>Zona Sul</h2>
-    <p><%= @per_zone_traffic[:south] %></p>
-  </section>
-
-  <section>
-    <h2>Zona Leste</h2>
-    <p><%= @per_zone_traffic[:east] %></p>
-  </section>
-
-  <section>
-    <h2>Centro</h2>
-    <p><%= @per_zone_traffic[:downtown] %></p>
+    <h2 class='airport-panel'>Total</h2>
+    <p class='airport-panel'><%= @overall_traffic %> km</p>
   </section>
 </div>

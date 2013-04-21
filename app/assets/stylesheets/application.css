@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require 'normalize'
+ *= require 'boilerplace'
  *= require 'main'
  */
