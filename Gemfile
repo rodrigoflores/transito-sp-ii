@@ -28,3 +28,4 @@ group :test, :development do
 end
 
 gem 'unicorn'
+gem 'rack-timeout'
