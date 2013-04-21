@@ -13,5 +13,8 @@
     <div class='airport-panel'><span class="value"><%= @overall_traffic %></span> <span class="unit">km</span></p>
   </section>
 
-  <p><a href="">Check out</a> who made this website, and <a href="">download the Dashboard widget for Mac OSX</a></p>
+  <p>
+    <%= link_to "Check out", "/humans.txt", target: "blank" %>who made this website,
+    and <%= link_to "download the Dashboard widget for Mac OSX", "/transito-sp.zip", target: "blank" %>
+  </p>
 </div>
