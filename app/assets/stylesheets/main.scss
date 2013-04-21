@@ -1,5 +1,5 @@
 body {
-  background-color: #333;
+  background-color: #444;
 }
 
 .container {
@@ -11,6 +11,7 @@ body {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius: 15px;
+  box-shadow: 3px 3px 3px #222;
 }
 
 h1 {
@@ -26,7 +27,7 @@ section {
   height: 40px;
   margin-bottom: 10px;
 
-  h2, p {
+  h2, div {
     padding-left: 2%;
     background-color: red;
     float: left;
@@ -41,10 +42,22 @@ section {
     margin-left: 5%;
   }
 
-  p {
+  div {
     width: 18%;
     margin-left: 5%;
     margin-right: 10%;
+
+    span {
+      float: left;
+      display: block;
+      text-align: right;
+    }
+
+    .value {
+      width: 50%;
+      margin-right: 5%;
+    }
+
   }
 }
 
