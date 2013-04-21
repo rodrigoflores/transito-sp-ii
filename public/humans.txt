@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Rodrigo Flores -- Developer -- @rlmflores
+
+# THANKS
+
+  Lucas Mazza for the great feedback!
+
+# TECHNOLOGY COLOPHON
+
+  HTML5, CSS3, Ruby on Rails, Traffic Scraper gem
