@@ -1,0 +1,31 @@
+<div>
+  <section>
+    <h2>São Paulo</h2>
+    <p><%= @overall_traffic %></p>
+  </section>
+
+  <section>
+    <h2>Zona Norte</h2>
+    <p><%= @per_zone_traffic[:north] %></p>
+  </section>
+
+  <section>
+    <h2>Zona Oeste</h2>
+    <p><%= @per_zone_traffic[:west] %></p>
+  </section>
+
+  <section>
+    <h2>Zona Sul</h2>
+    <p><%= @per_zone_traffic[:south] %></p>
+  </section>
+
+  <section>
+    <h2>Zona Leste</h2>
+    <p><%= @per_zone_traffic[:east] %></p>
+  </section>
+
+  <section>
+    <h2>Centro</h2>
+    <p><%= @per_zone_traffic[:downtown] %></p>
+  </section>
+</div>
