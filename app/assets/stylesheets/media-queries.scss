@@ -1,10 +1,10 @@
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .container {
     margin-bottom: 30px;
   }
 
   h1 {
-    font-size: 25px;
+    font-size: 1em;
   }
 
   section {
@@ -14,8 +14,8 @@
       height: 22px;
     }
   }
-}
 
-p {
-  display: none;
+  p {
+    display: none;
+  }
 }
