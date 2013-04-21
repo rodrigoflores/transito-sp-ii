@@ -26,3 +26,5 @@ group :test, :development do
   gem "launchy"
   gem "rspec-rails", "~> 2.0"
 end
+
+gem 'unicorn'
