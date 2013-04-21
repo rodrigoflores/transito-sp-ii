@@ -2,6 +2,15 @@ require "spec_helper"
 
 feature 'Traffic Information', :vcr do
   scenario 'shows the overall and traffic for each zone' do
+    Traffic::Scraper.should_receive(:overall_traffic).and_return(4)
+    Traffic::Scraper.should_receive(:zone_traffic).and_return({
+      north: 0,
+      south: 2,
+      east: 0,
+      west: 0,
+      downtown: 2
+    })
+
     visit '/'
 
     within(".north") do
