@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TransitoSpIi::Application.load_tasks
+TransitoSp::Application.load_tasks
