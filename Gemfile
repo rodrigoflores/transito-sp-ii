@@ -22,5 +22,7 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
+  gem "capybara"
+  gem "launchy"
   gem "rspec-rails", "~> 2.0"
 end

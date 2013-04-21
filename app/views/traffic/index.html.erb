@@ -2,13 +2,13 @@
   <h1>Trânsito SP</h1>
 
   <% @per_zone_traffic.each do |zone, value| %>
-    <section>
+    <section class='<%= zone.to_s %>'>
       <h2 class='airport-panel'><%= zone_name_for(zone) %></h2>
       <div class='airport-panel'><span class="value"><%= value %></span> <span class="unit">km</span></div>
     </section>
   <% end %>
 
-  <section>
+  <section class='overall'>
     <h2 class='airport-panel'>Total</h2>
     <div class='airport-panel'><span class="value"><%= @overall_traffic %></span> <span class="unit">km</span></p>
   </section>
