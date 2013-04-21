@@ -3,7 +3,7 @@ body {
 }
 
 .container {
-  padding: 20px;
+  padding: 20px 5%;
   background-image: image-url("noise.png");
   width: 50%;
   margin-left: 25%;
@@ -35,14 +35,12 @@ section {
   }
 
   h2 {
-    width: 58%;
-    margin-left: 5%;
+    width: 70%;
+    margin-right: 5%;
   }
 
   div {
-    width: 18%;
-    margin-left: 5%;
-    margin-right: 10%;
+    width: 21%;
 
     span {
       float: left;
@@ -54,7 +52,6 @@ section {
       width: 50%;
       margin-right: 5%;
     }
-
   }
 }
 
@@ -81,4 +78,13 @@ section {
 
 h2 {
   width: 200px;
+}
+
+p {
+  color: #666;
+}
+
+a {
+  text-decoration: none;
+  color: #c4c4c4;
 }
