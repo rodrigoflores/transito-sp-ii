@@ -2,8 +2,9 @@ class TrafficController < ApplicationController
   respond_to :html, :json
 
   def index
-    @overall_traffic = Traffic::Scraper.overall_traffic
-    @per_zone_traffic = Traffic::Scraper.zone_traffic
+    traffic = TrafficData.new
+    @overall_traffic = traffic.overall_traffic
+    @per_zone_traffic = traffic.traffic_per_zone
 
     respond_to do |format|
       format.html

@@ -15,6 +15,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+
 module TransitoSp
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -68,3 +69,5 @@ module TransitoSp
     config.assets.precompile += ['compatible.js']
   end
 end
+
+require Rails.root.join('lib', 'storage')

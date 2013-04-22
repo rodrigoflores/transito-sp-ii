@@ -29,3 +29,4 @@ end
 
 gem 'unicorn'
 gem 'rack-timeout'
+gem 'redis'
