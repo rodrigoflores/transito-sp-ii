@@ -28,7 +28,7 @@ class TrafficData
   def expired?
     return true unless Storage.get("recorded_at")
 
-    Time.parse(Storage.get("recorded_at")) < 5.minutes.ago
+    Time.parse(Storage.get("recorded_at")) < 1.minute.ago
   end
 
   def reset_traffic_data
