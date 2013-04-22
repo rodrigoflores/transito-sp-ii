@@ -1,7 +1,8 @@
 class Storage
   class << self
     def setup
-      @redis = Redis.new(host: "127.0.0.1", port: 6379)
+      uri = REDIS_URI
+      @redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
     end
 
     def set(key, value)
