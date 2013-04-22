@@ -1,43 +1,56 @@
 class TrafficData
   def overall_traffic
-    @overall = Storage.get("overall")
-    if @overall && !expired?
-      return @overall.to_i
-    end
-
-    reset_traffic_data
-    Storage.get("overall").to_i
+    resource['overall']
   end
 
   def traffic_per_zone
-    @per_zone = Storage.get("per_zone")
-    if @per_zone && !expired?
-      return JSON.parse(@per_zone)
-    end
-
-    reset_traffic_data
-    JSON.parse(Storage.get("per_zone"))
+    resource['per_zone']
   end
 
   private
+
+  def resource
+    return @resource if @resource
+
+    data = restore_data
+
+    return data if data
+
+    reset_data
+    @resource = restore_data
+    @resource
+  end
 
   def traffic_scrapper
     @scrapper ||= Traffic::Scraper
   end
 
-  def expired?
-    return true unless Storage.get("recorded_at")
-
-    Time.parse(Storage.get("recorded_at")) < 1.minute.ago
+  def expired?(date)
+    Time.parse(date) < 1.minute.ago
   end
 
-  def reset_traffic_data
-    Storage.set("per_zone", traffic_scrapper.zone_traffic.to_json)
-    Storage.set("overall", traffic_scrapper.overall_traffic.to_s)
-    reset_timestamp
+  def reset_data
+    Storage.set("traffic_data", traffic_data.to_json)
   end
 
-  def reset_timestamp
-    Storage.set("recorded_at", Time.now.to_s)
+  def traffic_data
+    {
+      'overall' => traffic_scrapper.overall_traffic,
+      'per_zone' => traffic_scrapper.zone_traffic,
+      'recorded_at' => Time.now.to_s
+    }
+  end
+
+  def restore_data
+    data = Storage.get('traffic_data')
+
+    if data
+      parsed_data = JSON.parse(data)
+
+      return if expired?(parsed_data['recorded_at'])
+      parsed_data
+    else
+      nil
+    end
   end
 end
