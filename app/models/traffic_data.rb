@@ -12,12 +12,11 @@ class TrafficData
   def resource
     return @resource if @resource
 
-    data = restore_data
+    data = get_data
 
     return data if data
 
-    reset_data
-    @resource = restore_data
+    @resource = fetch_data
     @resource
   end
 
@@ -29,19 +28,28 @@ class TrafficData
     Time.parse(date) < 1.minute.ago
   end
 
-  def reset_data
+  def fetch_data
+    data = traffic_data
     Storage.set("traffic_data", traffic_data.to_json)
+
+    puts traffic_data
+    traffic_data
   end
 
   def traffic_data
+    per_zone = {}
+    traffic_scrapper.zone_traffic.each_pair do |zone, value|
+      per_zone[zone.to_s] = value
+    end
+
     {
       'overall' => traffic_scrapper.overall_traffic,
-      'per_zone' => traffic_scrapper.zone_traffic,
+      'per_zone' => per_zone,
       'recorded_at' => Time.now.to_s
     }
   end
 
-  def restore_data
+  def get_data
     data = Storage.get('traffic_data')
 
     if data
