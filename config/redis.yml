@@ -2,3 +2,5 @@ development:
   path: 'redis://127.0.0.1:6379/0'
 test:
   path: 'redis://127.0.0.1:6379/1'
+production:
+  path: <%= ENV['REDISTOGO_URL'] %>
