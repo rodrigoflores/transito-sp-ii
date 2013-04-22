@@ -12,5 +12,9 @@ class Storage
     def get(key)
       @redis.get(key)
     end
+
+    def clean
+      @redis.flushall
+    end
   end
 end

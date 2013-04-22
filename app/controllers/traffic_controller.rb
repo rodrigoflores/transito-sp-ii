@@ -17,11 +17,11 @@ class TrafficController < ApplicationController
   def translate_hash
     {
       zonas: {
-        norte: @per_zone_traffic[:north],
-        sul: @per_zone_traffic[:south],
-        leste: @per_zone_traffic[:east],
-        oeste: @per_zone_traffic[:west],
-        centro: @per_zone_traffic[:downtown]
+        norte: @per_zone_traffic['north'],
+        sul: @per_zone_traffic['south'],
+        leste: @per_zone_traffic['east'],
+        oeste: @per_zone_traffic['west'],
+        centro: @per_zone_traffic['downtown']
       },
       total: @overall_traffic
     }
