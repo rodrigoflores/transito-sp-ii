@@ -32,7 +32,6 @@ class TrafficData
     data = traffic_data
     Storage.set("traffic_data", traffic_data.to_json)
 
-    puts traffic_data
     traffic_data
   end
 
@@ -47,6 +46,11 @@ class TrafficData
       'per_zone' => per_zone,
       'recorded_at' => Time.now.to_s
     }
+  rescue CouldNotRetrievePageError
+    data = JSON.parse(Storage.get('traffic_data'))
+
+    Storage.set("traffic_data", traffic_data.merge('recorded_at' => Time.now.to_s).to_json)
+    data
   end
 
   def get_data
